@@ -303,6 +303,12 @@ func (p Pattern) String() string {
 	return p.str
 }
 
+// SetStr set pattern str
+func (p *Pattern) SetStr(str string) *Pattern {
+	p.str = str
+	return p
+}
+
 // Copied from regexp.go with * and ? removed.
 var specialBytes = []byte(`\.+()|[]{}^$`)
 
@@ -464,6 +470,12 @@ func (k *KV) String() string {
 	return line
 }
 
+// SetLeadingSpace set leading space value
+func (k *KV) SetLeadingSpace(leadingSpace uint16) *KV {
+	k.leadingSpace = leadingSpace
+	return k
+}
+
 // Empty is a line in the config file that contains only whitespace or comments.
 type Empty struct {
 	Comment      string
@@ -580,6 +592,11 @@ func NewInclude(directives []string, hasEquals bool, pos Position, comment strin
 // Pos returns the position of the Include directive in the larger file.
 func (i *Include) Pos() Position {
 	return i.position
+}
+
+// GetFiles get files
+func (i *Include) GetFiles() map[string]*Config {
+	return i.files
 }
 
 // Get finds the first value in the Include statement matching the alias and the
