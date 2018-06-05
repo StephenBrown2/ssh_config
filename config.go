@@ -448,6 +448,14 @@ type KV struct {
 	position     Position
 }
 
+func NewKV(key, value string) *KV {
+	return &KV{
+		Key:          key,
+		Value:        value,
+		leadingSpace: 2,
+	}
+}
+
 // Pos returns k's Position.
 func (k *KV) Pos() Position {
 	return k.position
@@ -471,9 +479,8 @@ func (k *KV) String() string {
 }
 
 // SetLeadingSpace set leading space value
-func (k *KV) SetLeadingSpace(leadingSpace uint16) *KV {
-	k.leadingSpace = leadingSpace
-	return k
+func (k *KV) Format() {
+	k.leadingSpace = 2
 }
 
 // Empty is a line in the config file that contains only whitespace or comments.
