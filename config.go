@@ -452,7 +452,7 @@ func NewKV(key, value string) *KV {
 	return &KV{
 		Key:          key,
 		Value:        value,
-		leadingSpace: 2,
+		leadingSpace: 4,
 	}
 }
 
