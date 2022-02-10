@@ -267,7 +267,7 @@ func TestInclude(t *testing.T) {
 		t.Skip("skipping fs write in short mode")
 	}
 	testPath := filepath.Join(homedir(), ".ssh", "kevinburke-ssh-config-test-file")
-	err := ioutil.WriteFile(testPath, includeFile, 0644)
+	err := ioutil.WriteFile(testPath, includeFile, 0o644)
 	if err != nil {
 		t.Skipf("couldn't write SSH config file: %v", err.Error())
 	}
@@ -286,7 +286,7 @@ func TestIncludeSystem(t *testing.T) {
 		t.Skip("skipping fs write in short mode")
 	}
 	testPath := filepath.Join("/", "etc", "ssh", "kevinburke-ssh-config-test-file")
-	err := ioutil.WriteFile(testPath, includeFile, 0644)
+	err := ioutil.WriteFile(testPath, includeFile, 0o644)
 	if err != nil {
 		t.Skipf("couldn't write SSH config file: %v", err.Error())
 	}
@@ -310,7 +310,7 @@ func TestIncludeRecursive(t *testing.T) {
 		t.Skip("skipping fs write in short mode")
 	}
 	testPath := filepath.Join(homedir(), ".ssh", "kevinburke-ssh-config-recursive-include")
-	err := ioutil.WriteFile(testPath, recursiveIncludeFile, 0644)
+	err := ioutil.WriteFile(testPath, recursiveIncludeFile, 0o644)
 	if err != nil {
 		t.Skipf("couldn't write SSH config file: %v", err.Error())
 	}

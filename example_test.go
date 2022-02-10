@@ -28,7 +28,7 @@ func ExamplePattern() {
 }
 
 func ExampleDecode() {
-	var config = `
+	config := `
 Host *.example.com
   Compression yes
 `

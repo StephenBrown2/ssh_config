@@ -5,8 +5,7 @@ import (
 	"testing"
 )
 
-type errReader struct {
-}
+type errReader struct{}
 
 func (b *errReader) Read(p []byte) (n int, err error) {
 	return 0, errors.New("read error occurred")

@@ -806,7 +806,7 @@ func init() {
 func newConfig() *Config {
 	return &Config{
 		Hosts: []*Host{
-			&Host{
+			{
 				implicit: true,
 				Patterns: []*Pattern{matchAll},
 				Nodes:    make([]Node, 0),
