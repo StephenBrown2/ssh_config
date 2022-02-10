@@ -585,6 +585,11 @@ func NewKV(key, value string) *KV {
 	}
 }
 
+// CanonicalKey returns k's Key, using the canonical casing from https://man.openbsd.org/ssh_config.
+func (k *KV) CanonicalKey() string {
+	return GetCanonicalCase(k.Key)
+}
+
 // Pos returns k's Position.
 func (k *KV) Pos() Position {
 	return k.position
@@ -600,7 +605,7 @@ func (k *KV) String() string {
 	if k.hasEquals {
 		equals = " = "
 	}
-	line := fmt.Sprintf("%s%s%s%s", strings.Repeat(" ", int(k.leadingSpace)), k.Key, equals, k.Value)
+	line := fmt.Sprintf("%s%s%s%s", strings.Repeat(" ", k.leadingSpace), k.CanonicalKey(), equals, k.Value)
 	if k.Comment != "" {
 		line += " #" + k.Comment
 	}
